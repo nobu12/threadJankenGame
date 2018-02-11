@@ -26,13 +26,9 @@ public class Janken {
 
 		if (firstPlayerHand == Hand.GUU && secondPlayerHand == Hand.PAA) {
 				winner = secondPlayerHand;
-		}
-
-		if (firstPlayerHand == Hand.CHOKI && secondPlayerHand == Hand.GUU) {
+		} else if (firstPlayerHand == Hand.CHOKI && secondPlayerHand == Hand.GUU) {
 				winner = secondPlayerHand;
-		}
-
-		if (firstPlayerHand == Hand.PAA && secondPlayerHand == Hand.CHOKI) {
+		} else if (firstPlayerHand == Hand.PAA && secondPlayerHand == Hand.CHOKI) {
 				winner = secondPlayerHand;
 		}
 
