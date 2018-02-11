@@ -22,12 +22,6 @@ public class JankenCallable implements Callable<Janken.Hand> {
 			}
 		}
 
-		double random = (int) (Math.random() * 10);
-		if (6 < random) {
-			return Janken.Hand.GUU;
-		} else if (3 < random) {
-			return Janken.Hand.CHOKI;
-		}
-		return Janken.Hand.PAA;
+		return Janken.getHand();
 	}
 }

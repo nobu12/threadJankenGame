@@ -17,50 +17,61 @@ public class Janken {
 
 	/**
 	 * じゃんけんの結果を表示する
-	 * @param firstPlayerHand 1人目の出した手
-	 * @param secondPlayerHand 2人目の出した手
+	 *
+	 * @param firstPlayerHand
+	 *            1人目の出した手
+	 * @param secondPlayerHand
+	 *            2人目の出した手
 	 */
 	public static void getGameResult(Hand firstPlayerHand, Hand secondPlayerHand) {
 		// じゃんけんの勝者を1人目と仮置きする
 		Hand winner = firstPlayerHand;
 
 		if (firstPlayerHand == Hand.GUU && secondPlayerHand == Hand.PAA) {
-				winner = secondPlayerHand;
+			winner = secondPlayerHand;
 		} else if (firstPlayerHand == Hand.CHOKI && secondPlayerHand == Hand.GUU) {
-				winner = secondPlayerHand;
+			winner = secondPlayerHand;
 		} else if (firstPlayerHand == Hand.PAA && secondPlayerHand == Hand.CHOKI) {
-				winner = secondPlayerHand;
+			winner = secondPlayerHand;
 		}
 
 		System.out.println(getPlayerHand(firstPlayerHand, secondPlayerHand));
 		if (firstPlayerHand == secondPlayerHand) {
 			System.out.println("あいこです。");
 		} else if (winner == firstPlayerHand) {
-			System.out.println(getWinnerMessage("1人目"));
+			System.out.println("1人目の勝ちです。");
 		} else if (winner == secondPlayerHand) {
-			System.out.println(getWinnerMessage("2人目"));
+			System.out.println("2人目の勝ちです。");
 		}
 		System.out.println("");
 	}
 
 	/**
-	 * じゃんけん勝者の結果表示を組み立てる
-	 * @param winner じゃんけんの勝者
-	 * @return じゃんけん勝者の結果
+	 * ランダムにじゃんけんの手を取得する
+	 * @return じゃんけんの手
 	 */
-	private static String getWinnerMessage(String winner) {
-		return winner + "の勝ちです。";
+	public static Hand getHand() {
+		double random = Math.random() * 10;
+		if (6.6 < random) {
+			return Hand.GUU;
+		} else if (3.3 < random) {
+			return Hand.CHOKI;
+		}
+		return Hand.PAA;
 	}
 
 	/**
 	 * プレイヤーが出した手を表示する
-	 * @param firstPlayerHand 1人目の出した手
-	 * @param secondPlayerHand 2人目の出した手
+	 *
+	 * @param firstPlayerHand
+	 *            1人目の出した手
+	 * @param secondPlayerHand
+	 *            2人目の出した手
 	 * @return 1人目と2人目の手の出し方
 	 */
 	private static String getPlayerHand(Hand firstPlayerHand, Hand secondPlayerHand) {
-		return "1人目の手は" + String.format("%s", firstPlayerHand.getHand())
-				+ " ：  2人目の手は" + String.format("%s", secondPlayerHand.getHand());
+		return "1人目の手は" + String.format("%s", firstPlayerHand.getHand()) + " ：  2人目の手は"
+				+ String.format("%s", secondPlayerHand.getHand());
 	}
 
 }
