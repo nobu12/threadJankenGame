@@ -42,19 +42,15 @@ public class Janken {
 			}
 		}
 
+		System.out.println(getPlayerHand(firstPlayerHand, secondPlayerHand));
 		if (firstPlayerHand == secondPlayerHand) {
-			System.out.println(getPlayerHand(firstPlayerHand, secondPlayerHand));
 			System.out.println("あいこです。");
-			System.out.println("");
 		} else if (winner == firstPlayerHand) {
-			System.out.println(getPlayerHand(firstPlayerHand, secondPlayerHand));
 			System.out.println(getWinnerMessage("1人目"));
-			System.out.println("");
 		} else if (winner == secondPlayerHand) {
-			System.out.println(getPlayerHand(firstPlayerHand, secondPlayerHand));
 			System.out.println(getWinnerMessage("2人目"));
-			System.out.println("");
 		}
+		System.out.println("");
 	}
 
 	/**
