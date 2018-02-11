@@ -19,7 +19,6 @@ public class Main {
 	public static void main(String[] args) {
 		ExecutorService executorService = Executors.newScheduledThreadPool(THREAD_POOL_COUNT);
 
-		// じゃんけんの手をMapに設定する
 		List<Future<Hand>> jankenList = new ArrayList<>();
 		for (int i = 0; i < GAME_COUNT * 2; i++) {
 			Future<Hand> future = executorService.submit(new JankenCallable());
