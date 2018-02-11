@@ -3,13 +3,15 @@ package game;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+import game.Janken.Hand;
+
 public class JankenCallable implements Callable<Janken.Hand> {
 
 	public static int playerNumber = 1;
 	public final static Object lock = new Object();
 
 	@Override
-	public Janken.Hand call() throws Exception {
+	public Hand call() throws Exception {
 		TimeUnit.SECONDS.sleep(1);
 
 		synchronized (lock) {

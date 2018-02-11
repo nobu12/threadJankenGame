@@ -20,15 +20,15 @@ public class Main {
 		ExecutorService executorService = Executors.newScheduledThreadPool(THREAD_POOL_COUNT);
 
 		// じゃんけんの手をMapに設定する
-		List<Future<Janken.Hand>> jankenList = new ArrayList<>();
+		List<Future<Hand>> jankenList = new ArrayList<>();
 		for (int i = 0; i < GAME_COUNT * 2; i++) {
-			Future<Janken.Hand> future = executorService.submit(new JankenCallable());
+			Future<Hand> future = executorService.submit(new JankenCallable());
 			jankenList.add(future);
 		}
 
 		int count = 0;
-		Janken.Hand firstPlayerHand = null;
-		Janken.Hand currentPlayerHand = null;
+		Hand firstPlayerHand = null;
+		Hand currentPlayerHand = null;
 		for (Future<Hand> hand : jankenList) {
 			count++;
 
