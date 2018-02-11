@@ -24,22 +24,16 @@ public class Janken {
 		// じゃんけんの勝者を1人目と仮置きする
 		Hand winner = firstPlayerHand;
 
-		if (firstPlayerHand == Hand.GUU) {
-			if (secondPlayerHand == Hand.PAA) {
+		if (firstPlayerHand == Hand.GUU && secondPlayerHand == Hand.PAA) {
 				winner = secondPlayerHand;
-			}
 		}
 
-		if (firstPlayerHand == Hand.CHOKI) {
-			if (secondPlayerHand == Hand.GUU) {
+		if (firstPlayerHand == Hand.CHOKI && secondPlayerHand == Hand.GUU) {
 				winner = secondPlayerHand;
-			}
 		}
 
-		if (firstPlayerHand == Hand.PAA) {
-			if (secondPlayerHand == Hand.CHOKI) {
+		if (firstPlayerHand == Hand.PAA && secondPlayerHand == Hand.CHOKI) {
 				winner = secondPlayerHand;
-			}
 		}
 
 		System.out.println(getPlayerHand(firstPlayerHand, secondPlayerHand));
